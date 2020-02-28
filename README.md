@@ -9,12 +9,9 @@
 - Extends easily base class Event to add properties suiting your needs
 
 ## Sources
-[https://github.com/kevincastejon/cs-event-manager](https://github.com/kevincastejon/cs-event-manager)
+[https://github.com/kevincastejon/cs-eventmanager-for-unity](https://github.com/kevincastejon/cs-eventmanager-for-unity)
 
-## Nuget package
-[https://www.nuget.org/packages/EventManager/](https://www.nuget.org/packages/EventManager/)
-
-## Documentation
+## Documentation (same as the non-Unity version)
 [https://github.com/kevincastejon/cs-event-manager/tree/master/Documentation/html](https://github.com/kevincastejon/cs-event-manager/tree/master/Documentation/html)
 
 ## Usage
