@@ -6,7 +6,7 @@ using Event = kevincastejon.Event;
 
 public class Example : MonoBehaviour
 {
-    public EventDispatcherMono ed;
+    public EventDispatcher ed;
     public bool dispatched = false;
     // Start is called before the first frame update
     void Start()

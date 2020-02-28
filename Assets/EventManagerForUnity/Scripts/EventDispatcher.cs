@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace kevincastejon
 {
@@ -97,12 +98,31 @@ namespace kevincastejon
     /// </code>
     ///
     /// </summary>
-    public class EventDispatcher
+    [Serializable]
+    public struct DicoListeners
+    {
+        public string eventName;
+        public UEvent callback;
+    }
+    [Serializable]
+    public class UEvent : UnityEvent<Event> { }
+    public class EventDispatcher : MonoBehaviour
     {
         private List<Action<Event>> listenersWrappers = new List<Action<Event>>();
         private List<object> listenersCallBack = new List<object>();
         private List<string> listenersType = new List<string>();
         private static List<EventDispatcher> dispatchers = new List<EventDispatcher>();
+        public List<DicoListeners> Listeners;
+        // Start is called before the first frame update
+        void Start()
+        {
+            Listeners.ForEach((DicoListeners dl) =>
+            {
+                this.On<Event>(dl.eventName, (Event e) => {
+                    dl.callback?.Invoke(e);
+                });
+            });
+        }
         /// <summary>
         /// Alias convenience shortcut for AddEventListener<T> method
         /// </summary>
