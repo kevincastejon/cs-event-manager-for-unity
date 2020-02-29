@@ -105,14 +105,6 @@ namespace kevincastejon
         private static List<EventDispatcher> dispatchers = new List<EventDispatcher>();
         private object defaultTarget = null;
         /// <summary>
-        /// constructor
-        /// </summary>
-        /// <param name="defaultTarget">Default target for dispatched events, if not specified the EventDispatcher instance is set as default target. Useful for encapsulation.</param>
-        public EventDispatcher(object defaultTarget=null)
-        {
-            this.defaultTarget = defaultTarget;
-        }
-        /// <summary>
         /// Alias convenience shortcut for AddEventListener<T> method
         /// </summary>
         /// <typeparam name="T">Any type inherited of Event or Event itself</typeparam>
@@ -213,6 +205,19 @@ namespace kevincastejon
             for (int i = 0; i < max; i++)
                 if (listenersType[i] == eventName.ToString()) return (true);
             return (false);
+        }
+        /// <summary>
+        /// Default target for dispatched events, if not specified the EventDispatcher instance is set as default target. Useful for encapsulation.
+        /// </summary>
+        public object DefaultTarget{
+            get
+            {
+                return (defaultTarget);
+            }
+            set
+            {
+                defaultTarget = value;
+            }
         }
         /// <summary>
         /// Utilitary static method for removing all event listeners of all type and names on all EventDispatcher's intances. You can specify a list of EventDispatcher's to be excluded from the removing
