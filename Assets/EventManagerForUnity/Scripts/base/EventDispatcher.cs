@@ -103,6 +103,15 @@ namespace kevincastejon
         private List<object> listenersCallBack = new List<object>();
         private List<string> listenersType = new List<string>();
         private static List<EventDispatcher> dispatchers = new List<EventDispatcher>();
+        private object defaultTarget = null;
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="defaultTarget">Default target for dispatched events, if not specified the EventDispatcher instance is set as default target. Useful for encapsulation.</param>
+        public EventDispatcher(object defaultTarget=null)
+        {
+            this.defaultTarget = defaultTarget;
+        }
         /// <summary>
         /// Alias convenience shortcut for AddEventListener<T> method
         /// </summary>
@@ -171,7 +180,7 @@ namespace kevincastejon
         /// <param name="evt">An Event or inherited object that will be pass as parameter to the callback methods registered to this event (depending on its name)</param>
         public void DispatchEvent(Event evt)
         {
-            DispatchTargetedEvent(evt, null);
+            DispatchTargetedEvent(evt, defaultTarget);
         }
         /// <summary>
         /// Removes all event listeners registered to the specified <paramref name="eventName"/>. If not provided or null, then all event listeners of all type will be removed on this instance.

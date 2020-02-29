@@ -16,7 +16,7 @@ namespace EventManagerExample
 
         public void MyCallback(Event e)
         {
-            Debug.Log(e.Name + " event has been dispatched");
+            Debug.Log(e.Name + " event has been dispatched by" + e.Target);
         }
 
         // Update is called once per frame
