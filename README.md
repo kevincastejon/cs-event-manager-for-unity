@@ -15,4 +15,4 @@
 [https://github.com/kevincastejon/cs-event-manager/tree/master/Documentation/html](https://github.com/kevincastejon/cs-event-manager/tree/master/Documentation/html)
 
 ## Usage
-See ExampleScene
+See example scenes
